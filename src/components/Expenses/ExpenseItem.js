@@ -1,12 +1,14 @@
+import React, { useState } from "react";
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 
 function ExpenseItem(props) {
-  let title = props.title;
+  const [title, setTitle] = useState(props.title); // must be called inside a component function. not in nested
+
   const clickHandler = () => {
-    console.log("clicked!!!!");
-    title = "updated";
+    setTitle("clicked!!");
+    console.log("clicked!!!!"); //log show older value, as value don't change right away
   };
 
   return (
